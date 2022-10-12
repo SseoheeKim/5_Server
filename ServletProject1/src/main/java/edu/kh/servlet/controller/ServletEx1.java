@@ -38,9 +38,9 @@ public class ServletEx1 extends HttpServlet{
 		// 문서 형식과 문자 인코딩 지정
 		// -> html문서이고 문자는 UTF-8 형식으로 인코딩 되어있다
 		// --> 브라우저에 해당 내용에 맞게 해석
-		resp.setContentType("text/html; charset=UTF-8");
-		PrintWriter out = resp.getWriter();
-		out.print(inputName + "님의 나이는 " + inputAge + "세 입니다." );
+//		resp.setContentType("text/html; charset=UTF-8");
+//		PrintWriter out = resp.getWriter();
+//		out.print(inputName + "님의 나이는 " + inputAge + "세 입니다." );
 		
 
 		
