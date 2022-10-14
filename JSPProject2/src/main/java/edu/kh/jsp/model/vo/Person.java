@@ -12,7 +12,15 @@ public class Person {
 	public Person() { }
 	
 	
-	
+	// 매개변수 생성자
+	public Person(String name, int age, String address) {
+		super();
+		this.name = name;
+		this.age = age;
+		this.address = address;
+	}
+
+
 	// 필드 접근을 위한 getter/setter
 	public String getName() {
 		return name;
