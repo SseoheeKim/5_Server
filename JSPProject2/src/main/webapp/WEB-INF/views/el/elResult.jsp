@@ -19,7 +19,7 @@
 	<h4>파라미터</h4>
 	<pre>
 	EL로 request에 세팅된 파라미터를 얻어오는 방법
-	$ { para.name속성값 }
+	$ { param.name속성값 }
 	</pre>
 	
 	이름 : ${ param.inputName } <br>
