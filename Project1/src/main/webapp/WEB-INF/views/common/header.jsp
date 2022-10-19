@@ -44,7 +44,7 @@
 
                     <div id="header-menu">
                         <a href="#">내정보</a>
-                        <a href="#">로그아웃</a>
+                        <a href="/member/logout">로그아웃</a>
                     </div>
                 </c:otherwise>
             </c:choose>
