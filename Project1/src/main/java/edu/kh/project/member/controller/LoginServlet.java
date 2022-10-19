@@ -18,6 +18,16 @@ import edu.kh.project.member.model.vo.Member;
 @WebServlet("/member/login")
 public class LoginServlet extends HttpServlet{
 	
+	// 앵커태그 로그인에 대한 페이지 응답
+	@Override
+ 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.getRequestDispatcher("/WEB-INF/views/member/login.jsp").forward(req, resp);
+	
+	}
+	
+	
+	
+	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -63,8 +73,12 @@ public class LoginServlet extends HttpServlet{
 			// 1) HttpSession 객체 얻어오기
 			HttpSession session = req.getSession();
 			
+			String path = null; // 로그인 성공/실패에 따라 이동할 경로를 저장할 변수
+			
 			
 			if(loginMember != null ) { // 로그인이 성공한 경우
+				
+				path = "/"; // 메인 페이지 
 				
 				// 2) Session scope에 속성 추가하기
 				session.setAttribute("loginMember", loginMember);
@@ -113,12 +127,20 @@ public class LoginServlet extends HttpServlet{
 			
 				
 			} else { // 로그인 실패 시
+				
+				// 현재 요청하기 이전의 페이지
+				path = req.getHeader("referer");
+				// Referer 사용처
+				// referer의 값은 이 페이지를 요청한 이전 페이지가 무엇인지를 알려주는 정보
+				// referer는 보통 로그 분석이나 접근 제어를 할 때 이용
+			
 				session.setAttribute("message", "아이디 또는 비밀번호가 일치하지 않습니다.");
 				
 			}
 			
 			
-			 resp.sendRedirect("/"); 
+			// path가 "/"인 경우는 메인페이지 요청
+			 resp.sendRedirect(path); 
 			// 메인페이지로 응답을 재요청
 			// -> 주소창의 주소가 메인페이지 주소("/")로 변함
 			
@@ -142,6 +164,13 @@ public class LoginServlet extends HttpServlet{
 			
 		} catch(Exception e) {
 			e.printStackTrace();
+
+			String errorMessage = "로그인 중 문제가 발생했습니다";
+			req.setAttribute("errorMessage", errorMessage);
+			req.setAttribute("e", e);
+			
+			String path = "/WEB-INF/views/common/error.jsp";
+			req.getRequestDispatcher(path).forward(req, resp);
 		}
 	
 			

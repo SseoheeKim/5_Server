@@ -2,6 +2,7 @@ package edu.kh.project.member.model.service;
 
 import static edu.kh.project.common.JDBCTemplate.*;
 
+
 import java.sql.Connection;
 
 import edu.kh.project.member.model.dao.MemberDAO;
@@ -30,6 +31,25 @@ public class MemberService {
 		close(conn);
 		
 		return loginMember;
+	}
+
+
+	/** 회원가입 Service
+	 * @param member
+	 * @return result
+	 * @throws Exception
+	 */
+	public int signUp(Member member) throws Exception{
+		Connection conn = getConnection();
+		
+		int result = dao.signUp(conn, member);
+		
+		if(result > 0) commit(conn);
+		else		   rollback(conn);
+		
+		close(conn);
+		
+		return result;
 	}
 	
 	

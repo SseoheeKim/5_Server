@@ -9,4 +9,13 @@
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
+  
+  <error-page>
+  	<error-code>404</error-code>
+  	<location>/WEB-INF/views/common/404error.jsp</location>
+  	<!-- 404 에러
+  		1. 요청 주소 에러
+  		2. jsp 경로 에러
+  		3. 프로젝트 컴파일 에러 -->
+  </error-page>
 </web-app>
