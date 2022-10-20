@@ -28,7 +28,7 @@ public class SignUpServlet extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		// post방식은 한글 데이터 문자 깨질 가능성이 존재하므로 인코딩 변환
-		req.setCharacterEncoding("utf-8");
+		// req.setCharacterEncoding("utf-8");
 		
 		// 파라미터 얻어오기
 		String memberEmail = req.getParameter("memberEmail");
