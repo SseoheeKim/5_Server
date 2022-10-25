@@ -15,11 +15,12 @@
     <main>
         <section class="logo-area">
             <a href="/">
-                <img src="../resources/images/logo.jpg" alt="logo">
+                <img src="../resources/images/logo.jpg">
             </a>
         </section>
 
-        <form action="/member/login" method="POST">
+
+        <form action="/member/login" method="post">
             <section class="input-box">
                 <!-- required 속성 : form태그 제출 시 해당 input태그에 값이 존재하는 검사 -->
                 <input type="text" name="inputEmail" placeholder="Email" required>
@@ -32,20 +33,19 @@
 
             <button class="login-btn">Login</button>
 
+            <div class="saveId-area">
+                <input type="checkbox" name="saveId" id="saveId">
+                <label for="saveId">
+                    <i class="fas fa-check"></i> 아이디 저장
+                </label>
+            </div>
 
-        <div class="saveId-area">
-            <input type="checkbox" name="saveId" id="saveId">
-            <label for="saveId">
-                <i class="fas fa-check"></i> 아이디 저장
-            </label>
-        </div>
-
-        <p class="text-area">
-            <a href="#">회원가입</a>
-            |
-            <a href="#">ID/PW찾기</a>
-        </p>
-
+            <p class="text-area">
+                <a href="#">회원가입</a>
+                |
+                <a href="#">ID/PW 찾기</a>
+            </p>
+        </form>
     </main>
 </body>
 </html>
