@@ -295,3 +295,10 @@ FROM MEMBER
 WHERE MEMBER_DEL_FL = 'N' 
 AND MEMBER_EMAIL = 'user04@kh.or.kr' ;
 
+
+-- 탈퇴하지 않은 회원 중 이메일이 같은 회원 수 조회
+
+SELECT * FROM MEMBER;
+SELECT COUNT(*) FROM "MEMBER"
+WHERE MEMBER_EMAIL = 'user01@kh.or.kr'
+AND MEMBER_DEL_FL = 'N';
